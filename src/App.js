@@ -42,7 +42,8 @@ export class App extends Component {
     return (
       <div className="App">
         <SearchBox updateSearchInput = {this.updateSearchInput} />
-        {this.state.loading && <h1 style={{textAlign: 'center'}}>Loading...</h1>}
+        {!this.state.loading &&  !this.state.robots.length && <h1 style={{textAlign: 'center'}}>Data Not Found...</h1>}
+        {this.state.loading && <h1 style={{textAlign: 'center'}}>Loading ...</h1>}
         <CardList users = {this.state.searchInput ? this.state.searchuser :this.state.robots} searchUser = {this.state.searchuser} />
       </div>
     );
